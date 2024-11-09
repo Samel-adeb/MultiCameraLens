@@ -1,0 +1,13 @@
+<!-- res/drawable/rect_white_rounded_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color for the rectangle (transparent in this case) -->
+    <solid android:color="@android:color/transparent" />
+
+    <!-- Set the border color and width -->
+    <stroke
+        android:width="5dp"
+        android:color="#FFFFFF" /> <!-- White border -->
+
+    <!-- Set the corner radius for rounded corners -->
+    <corners android:radius="8dp" />
+</shape>
