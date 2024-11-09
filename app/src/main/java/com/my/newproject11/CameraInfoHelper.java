@@ -1,11 +1,10 @@
-package com.mynewproject11;
+package com.my.newproject11;
 
 import android.content.Context;
 import android.graphics.Rect;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
-import android.hardware.camera2.CameraMetadata;
 import android.util.SizeF;
 
 import java.util.ArrayList;
@@ -26,13 +25,13 @@ public class CameraInfoHelper {
         try {
             for (String cameraId : cameraManager.getCameraIdList()) {
                 lensCount++;  // Increment lens count for each camera found
-                
+
                 CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(cameraId);
                 Map<String, Object> cameraInfo = new HashMap<>();
-                
+
                 // Camera ID
                 cameraInfo.put("cameraid", cameraId);
-                
+
                 // Get lens position (front/back)
                 Integer lensFacing = characteristics.get(CameraCharacteristics.LENS_FACING);
                 String lensPosition = (lensFacing != null && lensFacing == CameraCharacteristics.LENS_FACING_FRONT) ? "Front" : "Back";
@@ -44,7 +43,7 @@ public class CameraInfoHelper {
                 if (sensorSize != null && activeArraySize != null) {
                     int pixelCount = activeArraySize.width() * activeArraySize.height();
                     double megapixels = pixelCount / 1_000_000.0;
-					megapixels = (double) Math.round(megapixels * 4);
+                    megapixels = (double) Math.round(megapixels * 4);
                     cameraInfo.put("megapixels", String.format("%.2f MP", megapixels));
                 }
 
