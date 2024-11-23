@@ -30,6 +30,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.widget.AdapterView;
+import java.lang.reflect.Field;
+import android.view.Menu; 
+import android.view.MenuItem; 
+import android.widget.PopupMenu;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -58,7 +62,6 @@ public class ViewActivity extends AppCompatActivity {
     private ImageView imageview1;
     private TextView textview1;
     private RelativeLayout linear5;
-    private Spinner spinner1;
     private ImageView imageview2;
     private LinearLayout linear3;
     private LinearLayout linear4;
@@ -97,7 +100,6 @@ public class ViewActivity extends AppCompatActivity {
         imageview1 = (ImageView) findViewById(R.id.imageview1);
         textview1 = (TextView) findViewById(R.id.textview1);
         linear5 = (RelativeLayout) findViewById(R.id.linear5);
-        spinner1 = (Spinner) findViewById(R.id.spinner1);
         imageview2 = (ImageView) findViewById(R.id.imageview2);
         linear3 = (LinearLayout) findViewById(R.id.linear3);
         linear4 = (LinearLayout) findViewById(R.id.linear4);
@@ -111,19 +113,46 @@ public class ViewActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        
+        imageview2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> _param1, View _param2, int _param3, long _param4) {
-                final int _position = _param3;
-                if (!(_position == 0)) {
-                    openDelete(_position == 1, viewpager1.getCurrentItem());
-                }
-            }
+            public void onClick(View _view) {
+                PopupMenu popup = new PopupMenu(ViewActivity.this, imageview2);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> _param1) {
+Menu menu = popup.getMenu();
 
+String[] items = {"Open File", "Delete File"};
+for (String item : items) {
+	    menu.add(item);
+}
+
+try {
+	    Field mFieldPopup = popup.getClass().getDeclaredField("mPopup");
+	    mFieldPopup.setAccessible(true);
+	    Object mPopup = mFieldPopup.get(popup);
+	    mPopup.getClass().getDeclaredMethod("setForceShowIcon", boolean.class).invoke(mPopup, true);
+} catch (Exception e) {
+	    e.printStackTrace();
+}
+
+
+popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+	
+	public boolean onMenuItemClick(MenuItem item) {
+		switch (item.getTitle().toString()) {
+			
+			case "Open File":
+			openDelete(true, viewpager1.getCurrentItem());
+			return true;
+			case "Delete File":
+			openDelete(false, viewpager1.getCurrentItem());
+			return true;
+			
+			default: return false;
+		}
+	}
+});
+popup.show();
             }
         });
 
@@ -147,11 +176,6 @@ public class ViewActivity extends AppCompatActivity {
 
     private void initializeLogic() {
         screenWidth = getDisplayWidthPixels(getApplicationContext());
-        popup.add("  ");
-        popup.add("Open File");
-        popup.add("Delete File");
-        spinner1.setAdapter(new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, popup));
-        ((ArrayAdapter) spinner1.getAdapter()).notifyDataSetChanged();
         position = Double.parseDouble(getIntent().getStringExtra("position"));
         ArrayList<HashMap<String, Object>> savedList = new ArrayList<>();
         if (lastFile.getString("savedList", "").equals("")) {
@@ -270,8 +294,7 @@ public class ViewActivity extends AppCompatActivity {
                 i.setDataAndType(Uri.parse("file://" + filePath), "image/*");
                 i.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
                 startActivity(i);
-
-                spinner1.setSelection((int) (0));
+                
             } catch (Exception e) {
 
             }

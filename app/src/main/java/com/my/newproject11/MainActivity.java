@@ -1,65 +1,84 @@
 package com.my.newproject11;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.*;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
 import com.google.android.material.appbar.AppBarLayout;
-import com.my.newproject11.R;
-
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-
-import android.annotation.SuppressLint;
 import android.widget.LinearLayout;
+import android.app.*;
+import android.os.*;
 import android.view.*;
+import android.view.View.*;
 import android.widget.*;
 import android.content.*;
+import android.content.res.*;
 import android.graphics.*;
 import android.graphics.drawable.*;
+import android.media.*;
+import android.net.*;
+import android.text.*;
+import android.text.style.*;
 import android.util.*;
-
+import android.webkit.*;
+import android.animation.*;
+import android.view.animation.*;
 import java.util.*;
+import java.util.regex.*;
 import java.text.*;
+import org.json.*;
 import java.util.HashMap;
 import java.util.ArrayList;
-
 import android.widget.ImageView;
-
 import androidx.recyclerview.widget.*;
 import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.recyclerview.widget.RecyclerView.Adapter;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.widget.TextView;
-
+import android.widget.SeekBar;
 import androidx.cardview.widget.CardView;
-
 import android.widget.ScrollView;
-import android.widget.Switch;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Build;
-
 import androidx.core.content.FileProvider;
-
 import java.io.File;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import java.io.InputStream;
+import android.media.SoundPool;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.graphics.Typeface;
-
 import androidx.camera.camera2.*;
+import androidx.exifinterface.*;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.DialogFragment;
 import androidx.core.content.ContextCompat;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCaptureSession;
+import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
+import android.hardware.camera2.CameraMetadata;
+import android.hardware.camera2.CaptureRequest;
+import android.hardware.camera2.TotalCaptureResult;
+import android.hardware.camera2.params.StreamConfigurationMap;
+import android.media.Image;
+import android.media.ImageReader;
+import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.HandlerThread;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -107,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerview1;
     private LinearLayout linear6;
     private LinearLayout linear7;
+    private LinearLayout autView;
+	private TextView textview3;
+	private SeekBar seekbar1;
     private LinearLayout raw;
     private LinearLayout jpeg;
     private TextView textview1;
@@ -120,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
     private ScrollView _drawer_vscroll1;
     private LinearLayout _drawer_linear1;
     private ImageView _drawer_imageview1;
-    private Switch _drawer_switch1;
     private TextView _drawer_textview1;
     private ImageView _drawer_imageview2;
     private TextView _drawer_deviceName;
@@ -142,26 +163,43 @@ public class MainActivity extends AppCompatActivity {
     private Intent intent = new Intent();
 
     @Override
-    protected void onCreate(Bundle _savedInstanceState) {
-        super.onCreate(_savedInstanceState);
-        setContentView(R.layout.main);
-        initialize(_savedInstanceState);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
-        } else {
-            initializeLogic();
-        }
-    }
+	protected void onCreate(Bundle _savedInstanceState) {
+		super.onCreate(_savedInstanceState);
+		setContentView(R.layout.main);
+		initialize(_savedInstanceState);
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
+		|| ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
+		|| ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+	ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
+	
+	if (!(Environment.isExternalStorageManager())) {
+		//request for the permission
+		Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+		Uri uri = Uri.fromParts("package", getPackageName(), null);
+		intent.setData(uri);
+		startActivity(intent);
+	}
+initializeLogic();
+} else {
+	ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
+}
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1000) {
-            initializeLogic();
-        }
-    }
+		}
+		else {
+			initializeLogic();
+		}
+	}
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		if (requestCode == 1000) {
+intent.setClass(getApplicationContext(), MainActivity.class);
+startActivity(intent);
+finish();
+			initializeLogic();
+		}
+	}
 
     private void initialize(Bundle _savedInstanceState) {
 
@@ -200,8 +238,11 @@ public class MainActivity extends AppCompatActivity {
         linear14 = (LinearLayout) findViewById(R.id.linear14);
         imageview2 = (ImageView) findViewById(R.id.imageview2);
         recyclerview1 = (RecyclerView) findViewById(R.id.recyclerview1);
-        linear6 = (LinearLayout) findViewById(R.id.linear6);
-        linear7 = (LinearLayout) findViewById(R.id.linear7);
+        autView = (LinearLayout) findViewById(R.id.autView);
+		linear6 = (LinearLayout) findViewById(R.id.linear6);
+		linear7 = (LinearLayout) findViewById(R.id.linear7);
+		textview3 = (TextView) findViewById(R.id.textview3);
+		seekbar1 = (SeekBar) findViewById(R.id.seekbar1);
         raw = (LinearLayout) findViewById(R.id.raw);
         jpeg = (LinearLayout) findViewById(R.id.jpeg);
         textview1 = (TextView) findViewById(R.id.textview1);
@@ -215,7 +256,6 @@ public class MainActivity extends AppCompatActivity {
         _drawer_vscroll1 = (ScrollView) _nav_view.findViewById(R.id.vscroll1);
         _drawer_linear1 = (LinearLayout) _nav_view.findViewById(R.id.linear1);
         _drawer_imageview1 = (ImageView) _nav_view.findViewById(R.id.imageview1);
-        _drawer_switch1 = (Switch) _nav_view.findViewById(R.id.switch1);
         _drawer_textview1 = (TextView) _nav_view.findViewById(R.id.textview1);
         _drawer_imageview2 = (ImageView) _nav_view.findViewById(R.id.imageview2);
         _drawer_deviceName = (TextView) _nav_view.findViewById(R.id.deviceName);
@@ -353,23 +393,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        _drawer_switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton _param1, boolean _param2) {
-                final boolean _isChecked = _param2;
-                autofocus = _isChecked;
-            }
-        });
-    }
-
     private void initializeLogic() {
         getSupportActionBar().hide();
+        checkPermit();
         CameraInfoHelper cameraInfoHelper = new CameraInfoHelper(this);
         cameraInfoHelper.fetchCameraInfo();
 
         int lensCount = cameraInfoHelper.getLensCount();
         List<Map<String, Object>> cameraDetails = cameraInfoHelper.getCameraCharacteristicsList();
         captureHelper = new MultiCameraCaptureHelper(this, lastFile);
+        autoFocus();
         frontlens = 0;
         backlens = 0;
         stereo = "No";
@@ -402,7 +435,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (lens.size() == 1) {
-            Toast.makeText(getApplicationContext(), "Only one back lens available. Doesn't support multicamera", Toast.LENGTH_SHORT).show();
+            showDialogIfNeeded();
         }
         if (lastFile.getString("lastFile", "").equals("")) {
             capturedImage.setVisibility(View.GONE);
@@ -606,6 +639,41 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+    
+    
+    public void autoFocus () {
+	seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		@Override
+		public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+			float focusDistance = progress / 100.0f; 
+			captureHelper.updateFocusDistance(focusDistance);
+		}
+		
+		@Override
+		public void onStartTrackingTouch(SeekBar seekBar) {}
+		
+		@Override
+		public void onStopTrackingTouch(SeekBar seekBar) {}
+	});
+
+}
+
+private void showDialogIfNeeded(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("firsttime", Context.MODE_PRIVATE);
+		boolean isFirstLaunch = prefs.getBoolean("firsttime", true);
+		
+		if (isFirstLaunch) {
+			new AlertDialog.Builder(context)
+			.setTitle("Multicamera not supported")
+			.setMessage("Only one back lens available. Doesn't support multicamera")
+			.setPositiveButton("OK", (dialog, which) -> {
+				SharedPreferences.Editor editor = prefs.edit();
+				editor.putBoolean(KEY_FIRST_LAUNCH, false);
+				editor.apply();
+			})
+			.show();
+		}
+	
 
     public void checkAndFilter(final ArrayList<HashMap<String, Object>> lmap) {
         try {
@@ -655,6 +723,20 @@ public class MainActivity extends AppCompatActivity {
         } else {
             image3.setImageBitmap(decodeSampleBitmapFromPath(lastFile.getString("lastFile", ""), 1024, 1024));
         }
+    }
+    
+    public void checkPermit(){
+    if (Build.VERSION.SDK_INT >= 23) {
+				if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
+						requestPermissions(new String[] {android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
+				}
+				else {
+		 
+				}
+		}
+		else {
+	 
+		}
     }
 
 
