@@ -79,7 +79,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 
-
 public class MainActivity extends AppCompatActivity {
 
     public final int REQ_CD_H = 101;
@@ -127,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout linear6;
     private LinearLayout linear7;
     private LinearLayout autView;
-	private TextView textview3;
-	private SeekBar seekbar1;
+    private TextView textview3;
+    private SeekBar seekbar1;
     private LinearLayout raw;
     private LinearLayout jpeg;
     private TextView textview1;
@@ -163,43 +162,47 @@ public class MainActivity extends AppCompatActivity {
     private Intent intent = new Intent();
 
     @Override
-	protected void onCreate(Bundle _savedInstanceState) {
-		super.onCreate(_savedInstanceState);
-		setContentView(R.layout.main);
-		initialize(_savedInstanceState);
-		if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
-		|| ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-		|| ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-	ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
-	
-	if (!(Environment.isExternalStorageManager())) {
-		//request for the permission
-		Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-		Uri uri = Uri.fromParts("package", getPackageName(), null);
-		intent.setData(uri);
-		startActivity(intent);
-	}
-initializeLogic();
-} else {
-	ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
-}
+    protected void onCreate(Bundle _savedInstanceState) {
+        super.onCreate(_savedInstanceState);
+        setContentView(R.layout.main);
+        initialize(_savedInstanceState);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
+                || ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
+                || ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA,
+                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 10001);
 
-		}
-		else {
-			initializeLogic();
-		}
-	}
-	@Override
-	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-		if (requestCode == 1000) {
-intent.setClass(getApplicationContext(), MainActivity.class);
-startActivity(intent);
-finish();
-			initializeLogic();
-		}
-	}
+                if (!(Environment.isExternalStorageManager())) {
+                    // request for the permission
+                    Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                    Uri uri = Uri.fromParts("package", getPackageName(), null);
+                    intent.setData(uri);
+                    startActivity(intent);
+                }
+                initializeLogic();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA,
+                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1000);
+            }
+
+        } else {
+            initializeLogic();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1000) {
+            intent.setClass(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+            initializeLogic();
+        }
+    }
 
     private void initialize(Bundle _savedInstanceState) {
 
@@ -331,7 +334,8 @@ finish();
         });
 
         jpeg.setOnClickListener(new View.OnClickListener() {
-            @Override
+
+    @Override
             public void onClick(View _view) {
                 isRaw = false;
                 if (isRaw) {
@@ -353,7 +357,8 @@ finish();
                     }.getIns((int) 10, (int) 0, Color.TRANSPARENT, Color.TRANSPARENT));
                 } else {
                     jpeg.setBackground(new GradientDrawable() {
-                        public GradientDrawable getIns(int a, int b, int c, int d) {
+
+    public GradientDrawable getIns(int a, int b, int c, int d) {
                             this.setCornerRadius(a);
                             this.setStroke(b, c);
                             this.setColor(d);
@@ -373,7 +378,8 @@ finish();
         });
 
         snap.setOnClickListener(new View.OnClickListener() {
-            @Override
+
+    @Override
             public void onClick(View _view) {
                 captureHelper.captureAllCameras(isRaw, devicename, model, apiversion, new ImageSavedCallback() {
                     @Override
@@ -386,12 +392,14 @@ finish();
         });
 
         image3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View _view) {
-                intent.setClass(getApplicationContext(), ImagesActivity.class);
-                startActivity(intent);
-            }
-        });
+
+    @Override
+    public void onClick(View _view) {
+        intent.setClass(getApplicationContext(), ImagesActivity.class);
+        startActivity(intent);
+    }
+
+    });
 
     private void initializeLogic() {
         getSupportActionBar().hide();
@@ -484,7 +492,8 @@ finish();
             }.getIns((int) 10, (int) 2, 0xFFFFFFFF, Color.TRANSPARENT));
         } else {
             jpeg.setBackground(new GradientDrawable() {
-                public GradientDrawable getIns(int a, int b, int c, int d) {
+
+    public GradientDrawable getIns(int a, int b, int c, int d) {
                     this.setCornerRadius(a);
                     this.setStroke(b, c);
                     this.setColor(d);
@@ -501,7 +510,8 @@ finish();
             }.getIns((int) 10, (int) 0, Color.TRANSPARENT, Color.TRANSPARENT));
         }
         capturedImage.setBackground(new GradientDrawable() {
-            public GradientDrawable getIns(int a, int b, int c, int d) {
+
+    public GradientDrawable getIns(int a, int b, int c, int d) {
                 this.setCornerRadius(a);
                 this.setStroke(b, c);
                 this.setColor(d);
@@ -620,7 +630,6 @@ finish();
                 if (_resultCode == Activity.RESULT_OK) {
                     String _filePath = _file_h.getAbsolutePath();
 
-
                 } else {
 
                 }
@@ -630,7 +639,6 @@ finish();
         }
     }
 
-
     @Override
     public void onBackPressed() {
         if (_drawer.isDrawerOpen(GravityCompat.START)) {
@@ -639,24 +647,43 @@ finish();
             super.onBackPressed();
         }
     }
-    
-    
-    public void autoFocus () {
-	seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-		@Override
-		public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-			float focusDistance = progress / 100.0f; 
-			captureHelper.updateFocusDistance(focusDistance);
-		}
-		
-		@Override
-		public void onStartTrackingTouch(SeekBar seekBar) {}
-		
-		@Override
-		public void onStopTrackingTouch(SeekBar seekBar) {}
-	});
 
-}
+        seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float focusDistance = progress / 100.0f;
+                captureHelper.updateFocusDistance(focusDistance);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
+    }
+
+    public void autoFocus () {
+        seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float focusDistance = progress / 100.0f; 
+                if(lens.size() > 0){
+                captureHelper.updateFocusDistance(focusDistance);
+                }
+            }
+            
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+    
+    }
 
 private void showDialogIfNeeded(Context context) {
 		SharedPreferences prefs = context.getSharedPreferences("firsttime", Context.MODE_PRIVATE);
@@ -673,7 +700,6 @@ private void showDialogIfNeeded(Context context) {
 			})
 			.show();
 		}
-	
 
     public void checkAndFilter(final ArrayList<HashMap<String, Object>> lmap) {
         try {
@@ -691,7 +717,6 @@ private void showDialogIfNeeded(Context context) {
         captureHelper.initializeCameras(cam1, cam2, cam3, cam4, all2, gs, this, autofocus);
     }
 
-
     public void setListData(final ArrayList<HashMap<String, Object>> lenslist) {
         checkAndFilter(lenslist);
         lens = lenslist;
@@ -702,7 +727,8 @@ private void showDialogIfNeeded(Context context) {
     public File createNewPictureFile(Context context) {
         SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String fileName = date.format(new Date()) + ".jpg";
-        File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + fileName);
+        File file = new File(
+                context.getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + fileName);
         return file;
     }
 
@@ -724,21 +750,20 @@ private void showDialogIfNeeded(Context context) {
             image3.setImageBitmap(decodeSampleBitmapFromPath(lastFile.getString("lastFile", ""), 1024, 1024));
         }
     }
-    
-    public void checkPermit(){
-    if (Build.VERSION.SDK_INT >= 23) {
-				if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
-						requestPermissions(new String[] {android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
-				}
-				else {
-		 
-				}
-		}
-		else {
-	 
-		}
-    }
 
+    public void checkPermit() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
+                requestPermissions(new String[] { android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 10001);
+            } else {
+
+            }
+        } else {
+
+        }
+    }
 
     public class Recyclerview1Adapter extends RecyclerView.Adapter<Recyclerview1Adapter.ViewHolder> {
         ArrayList<HashMap<String, Object>> _data;
@@ -749,9 +774,11 @@ private void showDialogIfNeeded(Context context) {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater _inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater _inflater = (LayoutInflater) getBaseContext()
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View _v = _inflater.inflate(R.layout.lens, null);
-            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
             _v.setLayoutParams(_lp);
             return new ViewHolder(_v);
         }
@@ -766,7 +793,8 @@ private void showDialogIfNeeded(Context context) {
             final ImageView imageview4 = (ImageView) _view.findViewById(R.id.imageview4);
             final ImageView checked = (ImageView) _view.findViewById(R.id.checked);
 
-            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
             _view.setLayoutParams(_lp);
             textview1.setText("Lens ".concat(String.valueOf((long) (_position + 1))));
             if (_data.get((int) _position).get("selected").toString().equals("true")) {
