@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.*;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
 import com.google.android.material.appbar.AppBarLayout;
-
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -30,48 +28,34 @@ import android.util.*;
 import android.webkit.*;
 import android.animation.*;
 import android.view.animation.*;
-
 import java.util.*;
 import java.util.regex.*;
 import java.text.*;
-
 import org.json.*;
-
 import java.util.HashMap;
 import java.util.ArrayList;
-
 import android.widget.ImageView;
-
 import androidx.recyclerview.widget.*;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-
 import android.widget.TextView;
 import android.widget.SeekBar;
-
 import androidx.cardview.widget.CardView;
-
 import android.widget.ScrollView;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Build;
-
 import androidx.core.content.FileProvider;
-
 import java.io.File;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import java.io.InputStream;
-
 import android.media.SoundPool;
 import android.view.View;
 import android.graphics.Typeface;
-
 import androidx.camera.camera2.*;
 import androidx.exifinterface.*;
 import androidx.fragment.app.Fragment;
@@ -79,7 +63,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.DialogFragment;
 import androidx.core.content.ContextCompat;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
@@ -146,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout linear6;
     private LinearLayout linear7;
     private LinearLayout autView;
-    private TextView textview3;
-    private SeekBar seekbar1;
+	private TextView textview3;
+	private SeekBar seekbar1;
     private LinearLayout raw;
     private LinearLayout jpeg;
     private TextView textview1;
@@ -181,45 +164,44 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences lastFile;
     private Intent intent = new Intent();
 
-    public static final String KEY_FIRST_LAUNCH = "first_launch";
     @Override
-    protected void onCreate(Bundle _savedInstanceState) {
-        super.onCreate(_savedInstanceState);
-        setContentView(R.layout.main);
-        initialize(_savedInstanceState);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
+	protected void onCreate(Bundle _savedInstanceState) {
+		super.onCreate(_savedInstanceState);
+		setContentView(R.layout.main);
+		initialize(_savedInstanceState);
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
+		|| ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
+		|| ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+	ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
+	
+	if (!(Environment.isExternalStorageManager())) {
+		//request for the permission
+		Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+		Uri uri = Uri.fromParts("package", getPackageName(), null);
+		intent.setData(uri);
+		startActivity(intent);
+	}
+initializeLogic();
+} else {
+	ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
+}
 
-                if (!(Environment.isExternalStorageManager())) {
-                    //request for the permission
-                    Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
-                    Uri uri = Uri.fromParts("package", getPackageName(), null);
-                    intent.setData(uri);
-                    startActivity(intent);
-                }
-                initializeLogic();
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
-            }
-
-        } else {
-            initializeLogic();
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1000) {
-            intent.setClass(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-            initializeLogic();
-        }
-    }
+		}
+		else {
+			initializeLogic();
+		}
+	}
+	@Override
+	public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		if (requestCode == 1000) {
+intent.setClass(getApplicationContext(), MainActivity.class);
+startActivity(intent);
+finish();
+			initializeLogic();
+		}
+	}
 
     private void initialize(Bundle _savedInstanceState) {
 
@@ -414,6 +396,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private File createNewPictureFile(Context applicationContext) {
+
+    SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd_HHmmss");
+    String  fileName = date.format(new Date()) + ".jpg";
+    File file = new File(applicationContext.getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator
+            + fileName);
+return file;
+    }
+
     private void initializeLogic() {
         getSupportActionBar().hide();
         checkPermit();
@@ -456,7 +447,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (lens.size() == 1) {
-            showDialogIfNeeded(MainActivity.this);
+            showDialogIfNeeded(this);
         }
         if (lastFile.getString("lastFile", "").equals("")) {
             capturedImage.setVisibility(View.GONE);
@@ -660,43 +651,44 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+    
+    
+    public void autoFocus () {
+	seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+		@Override
+		public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+			float focusDistance = progress / 100.0f; 
+			if(lens.size() > 0){
+			captureHelper.updateFocusDistance(focusDistance);
+			}
+		}
+		
+		@Override
+		public void onStartTrackingTouch(SeekBar seekBar) {}
+		
+		@Override
+		public void onStopTrackingTouch(SeekBar seekBar) {}
+	});
 
+}
 
-    public void autoFocus() {
-        seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                float focusDistance = progress / 100.0f;
-                captureHelper.updateFocusDistance(focusDistance);
-            }
+private void showDialogIfNeeded(Context context) {
+    SharedPreferences prefs = context.getSharedPreferences("firsttime", Context.MODE_PRIVATE);
+    boolean isFirstLaunch = prefs.getBoolean("firsttime", true);
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-
+    if (isFirstLaunch) {
+        new AlertDialog.Builder(context)
+                .setTitle("Multicamera not supported")
+                .setMessage("Only one back lens available. Doesn't support multicamera")
+                .setPositiveButton("OK", (dialog, which) -> {
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("firsttime", false);
+                    editor.apply();
+                })
+                .show();
     }
-
-    private void showDialogIfNeeded(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences("firsttime", Context.MODE_PRIVATE);
-        boolean isFirstLaunch = prefs.getBoolean("firsttime", true);
-
-        if (isFirstLaunch) {
-            new AlertDialog.Builder(context)
-                    .setTitle("Multicamera not supported")
-                    .setMessage("Only one back lens available. Doesn't support multicamera")
-                    .setPositiveButton("OK", (dialog, which) -> {
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putBoolean(KEY_FIRST_LAUNCH, false);
-                        editor.apply();
-                    })
-                    .show();
-        }
-    }
+}
+	
 
     public void checkAndFilter(final ArrayList<HashMap<String, Object>> lmap) {
         try {
@@ -722,13 +714,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerview1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
-    public File createNewPictureFile(Context context) {
-        SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd_HHmmss");
-        String fileName = date.format(new Date()) + ".jpg";
-        File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + fileName);
-        return file;
-    }
-
     public Bitmap decodeSampleBitmapFromPath(String path, int reqWidth, int reqHeight) {
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
@@ -747,17 +732,19 @@ public class MainActivity extends AppCompatActivity {
             image3.setImageBitmap(decodeSampleBitmapFromPath(lastFile.getString("lastFile", ""), 1024, 1024));
         }
     }
-
-    public void checkPermit() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
-                requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
-            } else {
-
-            }
-        } else {
-
-        }
+    
+    public void checkPermit(){
+    if (Build.VERSION.SDK_INT >= 23) {
+				if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
+						requestPermissions(new String[] {android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
+				}
+				else {
+		 
+				}
+		}
+		else {
+	 
+		}
     }
 
 
@@ -824,8 +811,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth,
-                                     int reqHeight) {
+    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         final int width = options.outWidth;
         final int height = options.outHeight;
         int inSampleSize = 1;
@@ -894,4 +880,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-

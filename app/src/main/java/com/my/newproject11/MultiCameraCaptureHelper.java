@@ -40,7 +40,6 @@ import android.app.AlertDialog;
 import android.widget.SeekBar;
 import android.media.MediaPlayer;
 
-
 public class MultiCameraCaptureHelper {
 	
 	CameraManager cameraManager;
@@ -61,7 +60,7 @@ public class MultiCameraCaptureHelper {
 	ImageSavedCallback callback;
 	private boolean isAutofocusSupported = false;
 	private static final String PREFS_NAME = "CameraAutoFocusCheck";
-	public static final String KEY_FIRST_LAUNCH = "first_launch";
+	private static final String KEY_FIRST_LAUNCH = "first_launch";
 	CaptureRequest.Builder previewRequestBuilder;
 	private MediaPlayer mediaPlayer;
 	
@@ -238,7 +237,6 @@ public class MultiCameraCaptureHelper {
 					try {
 						previewRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
 						previewRequestBuilder.addTarget(previewSurface);
-						previewRequestBuilder.set(CaptureRequest.JPEG_ORIENTATION, 90); // Set capture orientation to vertical
 						
 						session.setRepeatingRequest(previewRequestBuilder.build(), null, null);
 					} catch (CameraAccessException e) {
@@ -274,12 +272,9 @@ public class MultiCameraCaptureHelper {
 				try {
 					CaptureRequest.Builder captureRequest = cameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
 					captureRequest.addTarget(imageReader.getSurface());
-					
 					if (isRaw) {
 						captureRequest.set(CaptureRequest.JPEG_QUALITY, (byte) 100);
 					}
-					captureRequest.set(CaptureRequest.JPEG_ORIENTATION, 90); // Set capture orientation to vertical
-					
 					if (mediaPlayer != null) {
 						mediaPlayer.start();
 					}
@@ -383,5 +378,5 @@ public class MultiCameraCaptureHelper {
 	public String getExternalStorageDir() {
 		return Environment.getExternalStorageDirectory().getAbsolutePath();
 	}
-		
+	
 }

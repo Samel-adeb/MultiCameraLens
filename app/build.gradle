@@ -63,5 +63,4 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.6.0'
     implementation 'androidx.navigation:navigation-ui:2.6.0'
     implementation 'com.google.code.gson:gson:2.7'
-
 }
