@@ -3226,6 +3226,7 @@ id apiversion
 id arc
 id asConfigured
 id async
+id autView
 id auto
 id autoComplete
 id autoCompleteToEnd
@@ -3570,6 +3571,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seekbar1
 id select_dialog_listview
 id selected
 id selection_type
@@ -3592,7 +3594,6 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
-id spinner1
 id spline
 id split_action_bar
 id spread
@@ -3614,7 +3615,6 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
-id switch1
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3648,6 +3648,7 @@ id textinput_suffix_text
 id textview1
 id textview10
 id textview2
+id textview3
 id textview6
 id time
 id title
@@ -3893,6 +3894,7 @@ layout view_slide
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw camerashutter
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

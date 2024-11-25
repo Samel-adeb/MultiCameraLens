@@ -1,142 +1,138 @@
 [
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_stereo.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/stereo.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_more_vert_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_more_vert_white.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_clear_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_clear_white.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_app_icon.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/app_icon.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_camera.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/camera.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_rect_white_border.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\rect_white_border.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_images.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\images.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_rect_white_border.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/rect_white_border.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_camera_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_camera_white.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout_view.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/view.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_gridview.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\gridview.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout_camview.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/camview.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\xml_provider_paths.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\xml\\provider_paths.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout_view_slide.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/view_slide.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout__drawer_main.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\_drawer_main.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/xml_provider_paths.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/xml/provider_paths.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_lens.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\lens.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_clear_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_clear_white.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_camview.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\camview.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_smartphone.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/smartphone.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_camera.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\camera.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_more_vert_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_more_vert_white.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_view.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\view.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout_gridview.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/gridview.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout__drawer_main.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/_drawer_main.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_chevron_left_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_chevron_left_white.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_tune_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_tune_white.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_app_icon.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\app_icon.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout_lens.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/lens.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_view_slide.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\view_slide.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_smartphone.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\smartphone.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_done_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_done_white.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_done_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_done_white.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_default_image.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/default_image.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_arrow_back_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_arrow_back_white.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.my.newproject11.app-main-51:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_snap.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/snap.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_stereo.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\stereo.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_chevron_left_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_chevron_left_white.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_camera_whitex.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_camera_whitex.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_camera_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_camera_white.png"
+    },
+    {
+        "merged": "com.my.newproject11.app-merged_res-49:/raw_camerashutter.mp3.flat",
+        "source": "com.my.newproject11.app-main-51:/raw/camerashutter.mp3"
     },
     {
         "merged": "com.my.newproject11.app-merged_res-49:/layout_main.xml.flat",
         "source": "com.my.newproject11.app-main-51:/layout/main.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\layout_main.xml.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\main.xml"
+        "merged": "com.my.newproject11.app-merged_res-49:/drawable-xhdpi_ic_arrow_back_white.png.flat",
+        "source": "com.my.newproject11.app-main-51:/drawable-xhdpi/ic_arrow_back_white.png"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_default_image.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\default_image.png"
-    },
-    {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_ic_tune_white.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\ic_tune_white.png"
-    },
-    {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-merged_res-49:\\drawable-xhdpi_snap.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\drawable-xhdpi\\snap.png"
+        "merged": "com.my.newproject11.app-merged_res-49:/layout_images.xml.flat",
+        "source": "com.my.newproject11.app-main-51:/layout/images.xml"
     }
 ]

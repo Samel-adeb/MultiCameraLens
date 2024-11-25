@@ -43,10 +43,10 @@ com.my.newproject11.app-navigation-runtime-2.6.0-41 C:\Users\USER\.gradle\caches
 com.my.newproject11.app-savedstate-1.2.1-42 C:\Users\USER\.gradle\caches\transforms-3\f534c6dcf558ba932fcdb0e63885d64d\transformed\savedstate-1.2.1\res
 com.my.newproject11.app-fragment-ktx-1.6.0-43 C:\Users\USER\.gradle\caches\transforms-3\f64e85ac17befd9659c74f4b9141fc5c\transformed\fragment-ktx-1.6.0\res
 com.my.newproject11.app-lifecycle-livedata-core-ktx-2.6.1-44 C:\Users\USER\.gradle\caches\transforms-3\fde49fa3fc395b7b21c348f3b93314f7\transformed\lifecycle-livedata-core-ktx-2.6.1\res
-com.my.newproject11.app-pngs-45 C:\Users\USER\Desktop\MuiltCameraLens\app\build\generated\res\pngs\debug
-com.my.newproject11.app-resValues-46 C:\Users\USER\Desktop\MuiltCameraLens\app\build\generated\res\resValues\debug
-com.my.newproject11.app-packageDebugResources-47 C:\Users\USER\Desktop\MuiltCameraLens\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.my.newproject11.app-packageDebugResources-48 C:\Users\USER\Desktop\MuiltCameraLens\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.my.newproject11.app-merged_res-49 C:\Users\USER\Desktop\MuiltCameraLens\app\build\intermediates\merged_res\debug
-com.my.newproject11.app-debug-50 C:\Users\USER\Desktop\MuiltCameraLens\app\src\debug\res
-com.my.newproject11.app-main-51 C:\Users\USER\Desktop\MuiltCameraLens\app\src\main\res
+com.my.newproject11.app-pngs-45 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\build\generated\res\pngs\debug
+com.my.newproject11.app-resValues-46 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\build\generated\res\resValues\debug
+com.my.newproject11.app-packageDebugResources-47 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.my.newproject11.app-packageDebugResources-48 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.my.newproject11.app-merged_res-49 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\build\intermediates\merged_res\debug
+com.my.newproject11.app-debug-50 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\src\debug\res
+com.my.newproject11.app-main-51 C:\Users\USER\Desktop\Projects\MuiltCameraLens\app\src\main\res

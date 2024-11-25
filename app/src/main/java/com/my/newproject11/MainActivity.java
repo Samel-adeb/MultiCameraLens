@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.*;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import com.google.android.material.appbar.AppBarLayout;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+
+import android.annotation.SuppressLint;
 import android.widget.LinearLayout;
 import android.app.*;
 import android.os.*;
@@ -26,34 +30,48 @@ import android.util.*;
 import android.webkit.*;
 import android.animation.*;
 import android.view.animation.*;
+
 import java.util.*;
 import java.util.regex.*;
 import java.text.*;
+
 import org.json.*;
+
 import java.util.HashMap;
 import java.util.ArrayList;
+
 import android.widget.ImageView;
+
 import androidx.recyclerview.widget.*;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+
 import android.widget.TextView;
 import android.widget.SeekBar;
+
 import androidx.cardview.widget.CardView;
+
 import android.widget.ScrollView;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Build;
+
 import androidx.core.content.FileProvider;
+
 import java.io.File;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import java.io.InputStream;
+
 import android.media.SoundPool;
 import android.view.View;
 import android.graphics.Typeface;
+
 import androidx.camera.camera2.*;
 import androidx.exifinterface.*;
 import androidx.fragment.app.Fragment;
@@ -61,6 +79,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.DialogFragment;
 import androidx.core.content.ContextCompat;
 import androidx.core.app.ActivityCompat;
+
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
@@ -78,6 +97,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -161,22 +181,20 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences lastFile;
     private Intent intent = new Intent();
 
+    public static final String KEY_FIRST_LAUNCH = "first_launch";
     @Override
     protected void onCreate(Bundle _savedInstanceState) {
         super.onCreate(_savedInstanceState);
         setContentView(R.layout.main);
         initialize(_savedInstanceState);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED
-                || ContextCompat.checkSelfPermission(this,
-                        Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
-                || ContextCompat.checkSelfPermission(this,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA,
-                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 10001);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
 
                 if (!(Environment.isExternalStorageManager())) {
-                    // request for the permission
+                    //request for the permission
                     Intent intent = new Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
                     Uri uri = Uri.fromParts("package", getPackageName(), null);
                     intent.setData(uri);
@@ -184,8 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 initializeLogic();
             } else {
-                ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA,
-                        Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1000);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
             }
 
         } else {
@@ -242,10 +259,10 @@ public class MainActivity extends AppCompatActivity {
         imageview2 = (ImageView) findViewById(R.id.imageview2);
         recyclerview1 = (RecyclerView) findViewById(R.id.recyclerview1);
         autView = (LinearLayout) findViewById(R.id.autView);
-		linear6 = (LinearLayout) findViewById(R.id.linear6);
-		linear7 = (LinearLayout) findViewById(R.id.linear7);
-		textview3 = (TextView) findViewById(R.id.textview3);
-		seekbar1 = (SeekBar) findViewById(R.id.seekbar1);
+        linear6 = (LinearLayout) findViewById(R.id.linear6);
+        linear7 = (LinearLayout) findViewById(R.id.linear7);
+        textview3 = (TextView) findViewById(R.id.textview3);
+        seekbar1 = (SeekBar) findViewById(R.id.seekbar1);
         raw = (LinearLayout) findViewById(R.id.raw);
         jpeg = (LinearLayout) findViewById(R.id.jpeg);
         textview1 = (TextView) findViewById(R.id.textview1);
@@ -334,8 +351,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         jpeg.setOnClickListener(new View.OnClickListener() {
-
-    @Override
+            @Override
             public void onClick(View _view) {
                 isRaw = false;
                 if (isRaw) {
@@ -357,8 +373,7 @@ public class MainActivity extends AppCompatActivity {
                     }.getIns((int) 10, (int) 0, Color.TRANSPARENT, Color.TRANSPARENT));
                 } else {
                     jpeg.setBackground(new GradientDrawable() {
-
-    public GradientDrawable getIns(int a, int b, int c, int d) {
+                        public GradientDrawable getIns(int a, int b, int c, int d) {
                             this.setCornerRadius(a);
                             this.setStroke(b, c);
                             this.setColor(d);
@@ -378,8 +393,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         snap.setOnClickListener(new View.OnClickListener() {
-
-    @Override
+            @Override
             public void onClick(View _view) {
                 captureHelper.captureAllCameras(isRaw, devicename, model, apiversion, new ImageSavedCallback() {
                     @Override
@@ -392,14 +406,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         image3.setOnClickListener(new View.OnClickListener() {
-
-    @Override
-    public void onClick(View _view) {
-        intent.setClass(getApplicationContext(), ImagesActivity.class);
-        startActivity(intent);
+            @Override
+            public void onClick(View _view) {
+                intent.setClass(getApplicationContext(), ImagesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
-
-    });
 
     private void initializeLogic() {
         getSupportActionBar().hide();
@@ -443,7 +456,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (lens.size() == 1) {
-            showDialogIfNeeded();
+            showDialogIfNeeded(MainActivity.this);
         }
         if (lastFile.getString("lastFile", "").equals("")) {
             capturedImage.setVisibility(View.GONE);
@@ -492,8 +505,7 @@ public class MainActivity extends AppCompatActivity {
             }.getIns((int) 10, (int) 2, 0xFFFFFFFF, Color.TRANSPARENT));
         } else {
             jpeg.setBackground(new GradientDrawable() {
-
-    public GradientDrawable getIns(int a, int b, int c, int d) {
+                public GradientDrawable getIns(int a, int b, int c, int d) {
                     this.setCornerRadius(a);
                     this.setStroke(b, c);
                     this.setColor(d);
@@ -510,8 +522,7 @@ public class MainActivity extends AppCompatActivity {
             }.getIns((int) 10, (int) 0, Color.TRANSPARENT, Color.TRANSPARENT));
         }
         capturedImage.setBackground(new GradientDrawable() {
-
-    public GradientDrawable getIns(int a, int b, int c, int d) {
+            public GradientDrawable getIns(int a, int b, int c, int d) {
                 this.setCornerRadius(a);
                 this.setStroke(b, c);
                 this.setColor(d);
@@ -630,6 +641,7 @@ public class MainActivity extends AppCompatActivity {
                 if (_resultCode == Activity.RESULT_OK) {
                     String _filePath = _file_h.getAbsolutePath();
 
+
                 } else {
 
                 }
@@ -638,6 +650,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
     @Override
     public void onBackPressed() {
@@ -648,6 +661,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public void autoFocus() {
         seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -666,40 +681,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void autoFocus () {
-        seekbar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                float focusDistance = progress / 100.0f; 
-                if(lens.size() > 0){
-                captureHelper.updateFocusDistance(focusDistance);
-                }
-            }
-            
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-            
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-    
-    }
+    private void showDialogIfNeeded(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences("firsttime", Context.MODE_PRIVATE);
+        boolean isFirstLaunch = prefs.getBoolean("firsttime", true);
 
-private void showDialogIfNeeded(Context context) {
-		SharedPreferences prefs = context.getSharedPreferences("firsttime", Context.MODE_PRIVATE);
-		boolean isFirstLaunch = prefs.getBoolean("firsttime", true);
-		
-		if (isFirstLaunch) {
-			new AlertDialog.Builder(context)
-			.setTitle("Multicamera not supported")
-			.setMessage("Only one back lens available. Doesn't support multicamera")
-			.setPositiveButton("OK", (dialog, which) -> {
-				SharedPreferences.Editor editor = prefs.edit();
-				editor.putBoolean(KEY_FIRST_LAUNCH, false);
-				editor.apply();
-			})
-			.show();
-		}
+        if (isFirstLaunch) {
+            new AlertDialog.Builder(context)
+                    .setTitle("Multicamera not supported")
+                    .setMessage("Only one back lens available. Doesn't support multicamera")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putBoolean(KEY_FIRST_LAUNCH, false);
+                        editor.apply();
+                    })
+                    .show();
+        }
+    }
 
     public void checkAndFilter(final ArrayList<HashMap<String, Object>> lmap) {
         try {
@@ -717,6 +714,7 @@ private void showDialogIfNeeded(Context context) {
         captureHelper.initializeCameras(cam1, cam2, cam3, cam4, all2, gs, this, autofocus);
     }
 
+
     public void setListData(final ArrayList<HashMap<String, Object>> lenslist) {
         checkAndFilter(lenslist);
         lens = lenslist;
@@ -727,8 +725,7 @@ private void showDialogIfNeeded(Context context) {
     public File createNewPictureFile(Context context) {
         SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd_HHmmss");
         String fileName = date.format(new Date()) + ".jpg";
-        File file = new File(
-                context.getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + fileName);
+        File file = new File(context.getExternalFilesDir(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + fileName);
         return file;
     }
 
@@ -753,10 +750,8 @@ private void showDialogIfNeeded(Context context) {
 
     public void checkPermit() {
         if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(
-                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
-                requestPermissions(new String[] { android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 10001);
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == android.content.pm.PackageManager.PERMISSION_DENIED) {
+                requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 10001);
             } else {
 
             }
@@ -764,6 +759,7 @@ private void showDialogIfNeeded(Context context) {
 
         }
     }
+
 
     public class Recyclerview1Adapter extends RecyclerView.Adapter<Recyclerview1Adapter.ViewHolder> {
         ArrayList<HashMap<String, Object>> _data;
@@ -774,11 +770,9 @@ private void showDialogIfNeeded(Context context) {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater _inflater = (LayoutInflater) getBaseContext()
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater _inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View _v = _inflater.inflate(R.layout.lens, null);
-            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             _v.setLayoutParams(_lp);
             return new ViewHolder(_v);
         }
@@ -793,8 +787,7 @@ private void showDialogIfNeeded(Context context) {
             final ImageView imageview4 = (ImageView) _view.findViewById(R.id.imageview4);
             final ImageView checked = (ImageView) _view.findViewById(R.id.checked);
 
-            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            RecyclerView.LayoutParams _lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             _view.setLayoutParams(_lp);
             textview1.setText("Lens ".concat(String.valueOf((long) (_position + 1))));
             if (_data.get((int) _position).get("selected").toString().equals("true")) {
@@ -831,7 +824,8 @@ private void showDialogIfNeeded(Context context) {
 
     }
 
-    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    public int calculateInSampleSize(BitmapFactory.Options options, int reqWidth,
+                                     int reqHeight) {
         final int width = options.outWidth;
         final int height = options.outHeight;
         int inSampleSize = 1;
@@ -900,3 +894,4 @@ private void showDialogIfNeeded(Context context) {
     }
 
 }
+

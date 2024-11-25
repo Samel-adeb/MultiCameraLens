@@ -29,6 +29,7 @@ id all1
 id all2
 id androidversion
 id apiversion
+id autView
 id cam1
 id cam2
 id cam3
@@ -63,12 +64,12 @@ id noCam
 id noRearCam
 id raw
 id recyclerview1
+id seekbar1
 id snap
-id spinner1
-id switch1
 id textview1
 id textview10
 id textview2
+id textview3
 id textview6
 id viewpager1
 id vscroll1
@@ -82,6 +83,7 @@ layout view
 layout view_slide
 mipmap ic_launcher
 mipmap ic_launcher_round
+raw camerashutter
 string app_name
 string id_test
 style AppTheme

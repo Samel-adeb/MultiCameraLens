@@ -36,13 +36,6 @@
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
 			android:orientation="vertical">
-			<Spinner
-				android:id="@+id/spinner1"
-				android:layout_width="25dp"
-				android:layout_height="wrap_content"
-				android:padding="8dp"
-				android:alpha="0.0"
-				android:spinnerMode="dropdown"/>
 			<ImageView
 				android:id="@+id/imageview2"
 				android:layout_width="24dp"
@@ -74,13 +67,15 @@
 			android:id="@+id/linear4"
 			android:layout_width="match_parent"
 			android:layout_height="250dp"
-			android:padding="8dp"
+			android:paddingLeft="8dp"
+			android:paddingTop="8dp"
+			android:paddingRight="8dp"
 			android:background="#212121"
 			android:orientation="horizontal">
 			<androidx.viewpager.widget.ViewPager
 				android:id="@+id/viewpager1"
 				android:layout_width="match_parent"
-				android:layout_height="200dp"/>
+				android:layout_height="wrap_content"/>
 		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>

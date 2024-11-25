@@ -5,26 +5,33 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
-	<androidx.cardview.widget.CardView
-		android:id="@+id/cardview1"
-		android:layout_width="150dp"
+	<LinearLayout
+		android:id="@+id/linear1"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_margin="5dp"
-		app:cardElevation="0dp"
-		app:cardCornerRadius="10dp">
-		<RelativeLayout
-			android:id="@+id/capturedImage"
-			android:layout_width="match_parent"
-			android:layout_height="200dp"
-			android:orientation="vertical">
-			<ImageView
-				android:id="@+id/image3"
-				android:focusable="false"
+		android:orientation="vertical"
+		android:background="@drawable/rect_white_border">
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cardview1"
+			android:layout_width="150dp"
+			android:layout_height="wrap_content"
+			android:layout_margin="1dp"
+			app:cardElevation="0dp"
+			app:cardCornerRadius="8dp">
+			<RelativeLayout
+				android:id="@+id/capturedImage"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:src="@drawable/snap"
-				android:scaleType="centerCrop"
-				android:layout_weight="1"/>
-		</RelativeLayout>
-	</androidx.cardview.widget.CardView>
+				android:layout_height="200dp"
+				android:orientation="vertical">
+				<ImageView
+					android:id="@+id/image3"
+					android:focusable="false"
+					android:layout_width="match_parent"
+					android:layout_height="200dp"
+					android:src="@drawable/snap"
+					android:scaleType="centerCrop"/>
+			</RelativeLayout>
+		</androidx.cardview.widget.CardView>
+	</LinearLayout>
 </LinearLayout>

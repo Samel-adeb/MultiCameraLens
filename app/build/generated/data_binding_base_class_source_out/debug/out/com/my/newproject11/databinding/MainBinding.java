@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +49,9 @@ public final class MainBinding implements ViewBinding {
 
   @NonNull
   public final LinearLayout all2;
+
+  @NonNull
+  public final LinearLayout autView;
 
   @NonNull
   public final TextureView cam1;
@@ -119,6 +123,9 @@ public final class MainBinding implements ViewBinding {
   public final RecyclerView recyclerview1;
 
   @NonNull
+  public final SeekBar seekbar1;
+
+  @NonNull
   public final ImageView snap;
 
   @NonNull
@@ -127,18 +134,22 @@ public final class MainBinding implements ViewBinding {
   @NonNull
   public final TextView textview2;
 
+  @NonNull
+  public final TextView textview3;
+
   private MainBinding(@NonNull DrawerLayout rootView, @NonNull AppBarLayout AppBar,
       @NonNull CoordinatorLayout Coordinator, @NonNull DrawerLayout Drawer,
       @NonNull LinearLayout NavView, @NonNull Toolbar Toolbar, @NonNull LinearLayout all1,
-      @NonNull LinearLayout all2, @NonNull TextureView cam1, @NonNull TextureView cam2,
-      @NonNull TextureView cam3, @NonNull TextureView cam4, @NonNull LinearLayout capturedImage,
-      @NonNull CardView cardview1, @NonNull ImageView image3, @NonNull ImageView imageview1,
-      @NonNull ImageView imageview2, @NonNull LinearLayout jpeg, @NonNull LinearLayout linear1,
-      @NonNull LinearLayout linear13, @NonNull LinearLayout linear14, @NonNull LinearLayout linear2,
-      @NonNull LinearLayout linear3, @NonNull FrameLayout linear4, @NonNull LinearLayout linear5,
-      @NonNull LinearLayout linear6, @NonNull LinearLayout linear7, @NonNull LinearLayout linear8,
-      @NonNull LinearLayout linear9, @NonNull LinearLayout raw, @NonNull RecyclerView recyclerview1,
-      @NonNull ImageView snap, @NonNull TextView textview1, @NonNull TextView textview2) {
+      @NonNull LinearLayout all2, @NonNull LinearLayout autView, @NonNull TextureView cam1,
+      @NonNull TextureView cam2, @NonNull TextureView cam3, @NonNull TextureView cam4,
+      @NonNull LinearLayout capturedImage, @NonNull CardView cardview1, @NonNull ImageView image3,
+      @NonNull ImageView imageview1, @NonNull ImageView imageview2, @NonNull LinearLayout jpeg,
+      @NonNull LinearLayout linear1, @NonNull LinearLayout linear13, @NonNull LinearLayout linear14,
+      @NonNull LinearLayout linear2, @NonNull LinearLayout linear3, @NonNull FrameLayout linear4,
+      @NonNull LinearLayout linear5, @NonNull LinearLayout linear6, @NonNull LinearLayout linear7,
+      @NonNull LinearLayout linear8, @NonNull LinearLayout linear9, @NonNull LinearLayout raw,
+      @NonNull RecyclerView recyclerview1, @NonNull SeekBar seekbar1, @NonNull ImageView snap,
+      @NonNull TextView textview1, @NonNull TextView textview2, @NonNull TextView textview3) {
     this.rootView = rootView;
     this.AppBar = AppBar;
     this.Coordinator = Coordinator;
@@ -147,6 +158,7 @@ public final class MainBinding implements ViewBinding {
     this.Toolbar = Toolbar;
     this.all1 = all1;
     this.all2 = all2;
+    this.autView = autView;
     this.cam1 = cam1;
     this.cam2 = cam2;
     this.cam3 = cam3;
@@ -170,9 +182,11 @@ public final class MainBinding implements ViewBinding {
     this.linear9 = linear9;
     this.raw = raw;
     this.recyclerview1 = recyclerview1;
+    this.seekbar1 = seekbar1;
     this.snap = snap;
     this.textview1 = textview1;
     this.textview2 = textview2;
+    this.textview3 = textview3;
   }
 
   @Override
@@ -237,6 +251,12 @@ public final class MainBinding implements ViewBinding {
       id = R.id.all2;
       LinearLayout all2 = ViewBindings.findChildViewById(rootView, id);
       if (all2 == null) {
+        break missingId;
+      }
+
+      id = R.id.autView;
+      LinearLayout autView = ViewBindings.findChildViewById(rootView, id);
+      if (autView == null) {
         break missingId;
       }
 
@@ -378,6 +398,12 @@ public final class MainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.seekbar1;
+      SeekBar seekbar1 = ViewBindings.findChildViewById(rootView, id);
+      if (seekbar1 == null) {
+        break missingId;
+      }
+
       id = R.id.snap;
       ImageView snap = ViewBindings.findChildViewById(rootView, id);
       if (snap == null) {
@@ -396,10 +422,17 @@ public final class MainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textview3;
+      TextView textview3 = ViewBindings.findChildViewById(rootView, id);
+      if (textview3 == null) {
+        break missingId;
+      }
+
       return new MainBinding((DrawerLayout) rootView, AppBar, Coordinator, Drawer, NavView, Toolbar,
-          all1, all2, cam1, cam2, cam3, cam4, capturedImage, cardview1, image3, imageview1,
+          all1, all2, autView, cam1, cam2, cam3, cam4, capturedImage, cardview1, image3, imageview1,
           imageview2, jpeg, linear1, linear13, linear14, linear2, linear3, linear4, linear5,
-          linear6, linear7, linear8, linear9, raw, recyclerview1, snap, textview1, textview2);
+          linear6, linear7, linear8, linear9, raw, recyclerview1, seekbar1, snap, textview1,
+          textview2, textview3);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

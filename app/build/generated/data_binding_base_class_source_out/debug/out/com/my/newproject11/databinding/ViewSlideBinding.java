@@ -30,12 +30,16 @@ public final class ViewSlideBinding implements ViewBinding {
   @NonNull
   public final ImageView image3;
 
+  @NonNull
+  public final LinearLayout linear1;
+
   private ViewSlideBinding(@NonNull LinearLayout rootView, @NonNull RelativeLayout capturedImage,
-      @NonNull CardView cardview1, @NonNull ImageView image3) {
+      @NonNull CardView cardview1, @NonNull ImageView image3, @NonNull LinearLayout linear1) {
     this.rootView = rootView;
     this.capturedImage = capturedImage;
     this.cardview1 = cardview1;
     this.image3 = image3;
+    this.linear1 = linear1;
   }
 
   @Override
@@ -83,7 +87,14 @@ public final class ViewSlideBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ViewSlideBinding((LinearLayout) rootView, capturedImage, cardview1, image3);
+      id = R.id.linear1;
+      LinearLayout linear1 = ViewBindings.findChildViewById(rootView, id);
+      if (linear1 == null) {
+        break missingId;
+      }
+
+      return new ViewSlideBinding((LinearLayout) rootView, capturedImage, cardview1, image3,
+          linear1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

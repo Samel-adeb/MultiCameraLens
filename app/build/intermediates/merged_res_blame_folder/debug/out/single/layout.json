@@ -1,38 +1,34 @@
 [
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\main.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\main.xml"
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/view_slide.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/view_slide.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\images.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\images.xml"
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/gridview.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/gridview.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\view.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\view.xml"
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/lens.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/lens.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\lens.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\lens.xml"
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/_drawer_main.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/_drawer_main.xml"
+    },
+    {
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/camview.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/camview.xml"
     },
     {
         "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/main.xml",
         "source": "com.my.newproject11.app-main-51:/layout/main.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\camview.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\camview.xml"
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/images.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/images.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\_drawer_main.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\_drawer_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\view_slide.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\view_slide.xml"
-    },
-    {
-        "merged": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-mergeDebugResources-48:\\layout\\gridview.xml",
-        "source": "C:\\Users\\USER\\.gradle\\daemon\\8.4\\com.my.newproject11.app-main-51:\\layout\\gridview.xml"
+        "merged": "com.my.newproject11.app-mergeDebugResources-48:/layout/view.xml",
+        "source": "com.my.newproject11.app-main-51:/layout/view.xml"
     }
 ]

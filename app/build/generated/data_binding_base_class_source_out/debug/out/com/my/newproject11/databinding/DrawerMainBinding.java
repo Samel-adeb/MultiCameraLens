@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -62,9 +61,6 @@ public final class DrawerMainBinding implements ViewBinding {
   public final TextView noRearCam;
 
   @NonNull
-  public final Switch switch1;
-
-  @NonNull
   public final TextView textview1;
 
   @NonNull
@@ -81,8 +77,8 @@ public final class DrawerMainBinding implements ViewBinding {
       @NonNull ImageView imageview1, @NonNull ImageView imageview2, @NonNull ImageView imageview3,
       @NonNull ImageView imageview4, @NonNull LinearLayout linear1, @NonNull TextView moFrontCam,
       @NonNull TextView model, @NonNull TextView noCam, @NonNull TextView noRearCam,
-      @NonNull Switch switch1, @NonNull TextView textview1, @NonNull TextView textview10,
-      @NonNull TextView textview6, @NonNull ScrollView vscroll1) {
+      @NonNull TextView textview1, @NonNull TextView textview10, @NonNull TextView textview6,
+      @NonNull ScrollView vscroll1) {
     this.rootView = rootView;
     this.androidversion = androidversion;
     this.apiversion = apiversion;
@@ -97,7 +93,6 @@ public final class DrawerMainBinding implements ViewBinding {
     this.model = model;
     this.noCam = noCam;
     this.noRearCam = noRearCam;
-    this.switch1 = switch1;
     this.textview1 = textview1;
     this.textview10 = textview10;
     this.textview6 = textview6;
@@ -209,12 +204,6 @@ public final class DrawerMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.switch1;
-      Switch switch1 = ViewBindings.findChildViewById(rootView, id);
-      if (switch1 == null) {
-        break missingId;
-      }
-
       id = R.id.textview1;
       TextView textview1 = ViewBindings.findChildViewById(rootView, id);
       if (textview1 == null) {
@@ -241,7 +230,7 @@ public final class DrawerMainBinding implements ViewBinding {
 
       return new DrawerMainBinding((LinearLayout) rootView, androidversion, apiversion,
           compatibility, deviceName, imageview1, imageview2, imageview3, imageview4, linear1,
-          moFrontCam, model, noCam, noRearCam, switch1, textview1, textview10, textview6, vscroll1);
+          moFrontCam, model, noCam, noRearCam, textview1, textview10, textview6, vscroll1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

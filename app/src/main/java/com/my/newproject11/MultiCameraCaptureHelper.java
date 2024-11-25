@@ -61,7 +61,7 @@ public class MultiCameraCaptureHelper {
 	ImageSavedCallback callback;
 	private boolean isAutofocusSupported = false;
 	private static final String PREFS_NAME = "CameraAutoFocusCheck";
-	private static final String KEY_FIRST_LAUNCH = "first_launch";
+	public static final String KEY_FIRST_LAUNCH = "first_launch";
 	CaptureRequest.Builder previewRequestBuilder;
 	private MediaPlayer mediaPlayer;
 	
